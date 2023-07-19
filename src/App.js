@@ -65,38 +65,46 @@ const App = () => {
     }
   };
 
-  return (    
+  return (
     <>
-      <Center>
-        <Button colorScheme='blue' onClick={roulette}>ルーレット</Button>
-        <Button colorScheme='blue' onClick={save} variant='outline'>保存</Button>
-      </Center>
-      {jsonData ? (
-        <Table variant='striped' colorScheme='blue'>
-          <Thead>
-            <Tr>
-              <Th>#Place</Th>
-              <Th>#Cleaner</Th>
-            </Tr>
-          </Thead>
-          <Tbody>
-            {jsonData.places.map((place, index) => (
-              <Tr key={index}>
-                <Td>{place}</Td>
-                <Td><Spinner className={active ? "spinner" : ""} style={{"transitionDelay": `${index}s`}}/>
-                  <span
-                    className={active ? '' : 'spinner'}
-                    style={{ transitionDelay: `${index}s` }}>
-                    {jsonData.cleaners[index]}
-                  </span>
-                </Td>
-              </Tr>
-            ))}
-          </Tbody>
-        </Table>
-      ) : (
-        <p>Loading JSON data...</p>
-      )}
+      <div className='flex'>
+        <img src="/sweeper.png" />
+        <div className='article'>
+          <div className='main'>
+            <div></div>
+            <Center>
+              <Button colorScheme='blue' onClick={roulette} size='lg'>ルーレット</Button>
+              <Button colorScheme='blue' onClick={save} variant='outline' size='lg'>保存</Button>
+            </Center>
+            {jsonData ? (
+              <Table variant='striped' colorScheme='blue'>
+                <Thead>
+                  <Tr>
+                    <Th>#Place</Th>
+                    <Th>#Cleaner</Th>
+                  </Tr>
+                </Thead>
+                <Tbody>
+                  {jsonData.places.map((place, index) => (
+                    <Tr key={index}>
+                      <Td>{place}</Td>
+                      <Td><Spinner className={active ? "spinner" : ""} style={{"transitionDelay": `${index}s`}}/>
+                        <span
+                          className={active ? '' : 'spinner'}
+                          style={{ transitionDelay: `${index}s` }}>
+                          {jsonData.cleaners[index]}
+                        </span>
+                      </Td>
+                    </Tr>
+                  ))}
+                </Tbody>
+              </Table>
+            ) : (
+              <p>Loading JSON data...</p>
+            )}
+          </div>
+        </div>
+      </div>
       {jsonData ? (
         <Table>
           <Thead>

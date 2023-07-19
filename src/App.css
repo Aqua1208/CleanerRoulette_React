@@ -31,3 +31,20 @@
 .spinner{
   opacity: 0;
 }
+
+.flex{
+  display: flex;
+}
+
+img{
+  height: 100vh;
+}
+
+.article{
+  width: calc(100% - 150px);
+}
+.main{
+  height: 100vh;
+  display: grid;
+  align-content: space-between;
+}
